@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Интерактивная карта</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="css/map.css">
+    <script src="js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="map__block">
+            <div class="main__title">
+                <h2 id="#main__title">"Мой родны кут" </h2>
+                <h2 id="#second__title">Экскурсионно - туристический маршрут по ул.Челюскинцев г.Могилева</h2>
+            </div>
+            <img src="img/map.svg" alt="map">
+            <div class="location">
+                <div class="section" onclick='Show("overlay__city","modal__city")'>
+                    <div class="section__about">Город, где мы живем.</div>
+                    <img src="img/city.svg" alt="city">
+                </div>
+                <div class="section" onclick='Show("overlay__streets","modal__streets")'>
+                    <div class="section__about">Улицы нашего города.</div>
+                    <img src="img/roads.svg" alt="streets">
+                </div>
+                <div class="section" onclick='Show("overlay__factories","modal__factories")'>
+                    <div class="section__about">Промышленные объекты.</div>
+                    <img src="img/factory.svg" alt="city">
+                </div>
+                <div class="section" onclick='Show("overlay__memorials","modal__memorials")'>
+                    <div class="section__about">Мемориальные комплексы.</div>
+                    <img src="img/monument.svg" alt="city">
+                </div>
+                <div class="section" onclick='Show("overlay__park","modal__park")'>
+                    <div class="section__about">Природные объекты.</div>
+                    <img src="img/park.svg" alt="city">
+                </div>
+            </div> 
+        </div>
+        <div class="overlay overlay__city">
+            <div class="popup modal__city">
+                <div class="popup__main">
+                    <div class="popup__title">
+                        <h3>Город, где мы живем.</h3>
+                    </div>
+                    <div class="popup__item" id="item1">
+                        <h4>Маршрут "Семь чудес Могилева"</h4>
+                        <div class="popup__menu">
+                            <div class="popup__element" onclick="window.open('https://yandex.by/maps/158/mogilev/?ll=30.322004%2C53.887434&mode=usermaps&source=constructorLink&um=constructor%3A04e8f6977b3d436d2daf10fcf11efb74e924e657c1e4c4c7d10d9a7015d4df72&z=13')">
+                               Схема маршрута
+                            </div>
+                            <div class="popup__element" onclick="window.open('pdf/mycity/wonders.pdf')">
+                                Фотообзор
+                            </div>
+                            <div class="popup__element" onclick="window.open('pdf/mycity/7_wonders.pdf')">
+                               Родителям на заметку
+                            </div>
+                            <div class="popup__element tooltip" data-title="&#9993; Email: yasli-sad51@yandex.by">
+                                Ваши отзывы 
+                            </div>
+                        </div>
+                        <div class="popup__img">
+                            <img src="img/aboutcity/plslavi.jpg" alt="square">
+                        </div>
+                    </div>
+
+                    <div class="popup__item">
+                        <h4>Маршрут "В гости к звездочету"</h4>
+                        <div class="popup__menu">
+                            <div class="popup__element" onclick="window.open('https://yandex.by/maps/158/mogilev/?ll=30.341616%2C53.902325&mode=usermaps&source=constructorLink&um=constructor%3A04e8f6977b3d436d2daf10fcf11efb74e924e657c1e4c4c7d10d9a7015d4df72&z=18.04')">
+                               Местоположение
+                            </div>
+                            <div class="popup__element" onclick="window.open('https://www.youtube.com/watch?v=jW6Zvn5YIfA&list=PLVr9a1M9Lb28M2RN8w3uTulXyU_5-CWuV')">
+                                Видеообзор
+                            </div>
+
+                            <div class="popup__element tooltip" data-title="&#9993; Email: yasli-sad51@yandex.by">
+                                Ваши отзывы
+                            </div>
+                        </div>
+                        <div class="popup__img">
+                            <img src="img/aboutcity/zvezdo.jpg" alt="zvezdo">
+                        </div>
+                    </div>
+                </div>
+                <div class="close-popup js-close-campaign" onclick='CloseModal("overlay__city","modal__city")'></div>
+            </div>
+        </div>
+        <div class="overlay overlay__streets">
+            <div class="popup modal__streets">
+                <div class="popup__main">
+                    <div class="popup__title">
+                        <h3>Улицы нашего города.</h3>
+                    </div>
+                    <div class="popup__item" id="item1">
+                        <h4>Маршрут "Улица Челюскинцев"</h4>
+                        <div class="popup__menu">
+                            <div class="popup__element" onclick="window.open('https://yandex.by/maps/158/mogilev/?ll=30.319066%2C53.891237&mode=usermaps&source=constructorLink&um=constructor%3Ac8fec4f5ca6fbdf1d84ad29c68cad982046c69d20c335747b0b57b3c059c6586&z=14')">
+                               Схема маршрута
+                            </div>
+                            <div class="popup__element" onclick="window.open('about-street.html')">
+                                Видеообзор
+                            </div>
+                            <div class="popup__element" onclick="window.open('pdf/streets/for_parents.pdf')">
+                               Родителям на заметку
+                            </div>
+                            <div class="popup__element tooltip" data-title="&#9993; Email: yasli-sad51@yandex.by">
+                                Ваши отзывы
+                            </div>
+                        </div>
+                        <div class="popup__img">
+                            <img src="img/aboutstreets/street.jpg" alt="street">
+                        </div>
+                    </div>
+
+                    <div class="popup__item">
+                        <h4>Маршрут "Каждая улица имеет свое название"</h4>
+                        <div class="popup__menu">
+                            <div class="popup__element" onclick="window.open('streets-name.html')">
+                                Видеообзор
+                            </div>
+                            <div class="popup__element"  onclick="window.open('pdf/streets/for_parents.pdf')">
+                               Родителям на заметку
+                            </div>
+                            <div class="popup__element tooltip" data-title="&#9993; Email: yasli-sad51@yandex.by">
+                                Ваши отзывы
+                            </div>
+                        </div>
+                        <div class="popup__img">
+                            <img src="img/aboutstreets/most.jpg" alt="most">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="close-popup js-close-campaign" onclick='CloseModal("overlay__streets","modal__streets")'></div>
+            </div>
+        </div>
+        <div class="overlay overlay__factories">
+            <div class="popup modal__factories" id="four__icons">
+                <div class="popup__main">
+                    <div class="popup__title">
+                        <h3>Промышленные объекты.</h3>
+                    </div>
+                    <div class="popup__item" id="item1">
+                        <h4>Маршрут "ОАО Лента"</h4>
+                        <div class="popup__menu">
+                            <div class="popup__element" onclick="window.open('https://yandex.by/maps/158/mogilev/?ll=30.304734%2C53.892304&mode=usermaps&source=constructorLink&um=constructor%3Ac8fec4f5ca6fbdf1d84ad29c68cad982046c69d20c335747b0b57b3c059c6586&z=19.25')">
+                               Местоположение
+                            </div>
+                            <div class="popup__element" onclick="window.open('pdf/factories/prom.pdf')">
+                               Родителям на заметку
+                            </div>
+                            <div class="popup__element tooltip" data-title="&#9993; Email: yasli-sad51@yandex.by">
+                                Ваши отзывы
+                            </div>
+                        </div>
+                        <div class="popup__img">
+                            <img src="img/factories/lenta.jpg" alt="lenta">
+                        </div>
+                    </div>
+
+                    <div class="popup__item">
+                        <h4>Маршрут "ОАО Можелит"</h4>
+                        <div class="popup__menu">
+                            <div class="popup__element" onclick="window.open('https://yandex.by/maps/158/mogilev/?ll=30.286919%2C53.890390&mode=usermaps&source=constructorLink&um=constructor%3Ac8fec4f5ca6fbdf1d84ad29c68cad982046c69d20c335747b0b57b3c059c6586&z=19.37')">
+                               Местоположение
+                            </div>
+                            <div class="popup__element" onclick="window.open('pdf/factories/prom.pdf')">
+                               Родителям на заметку
+                            </div>
+                            <div class="popup__element tooltip" data-title="&#9993; Email: yasli-sad51@yandex.by">
+                                Ваши отзывы
+                            </div>
+                        </div>
+                        <div class="popup__img">
+                            <img src="img/factories/mojelit.jpg" alt="mojelit">
+                        </div>
+                    </div>
+                    
+                    <div class="popup__item">
+                        <h4>Маршрут Компания "Домочай"</h4>
+                        <div class="popup__menu">
+                            <div class="popup__element" onclick="window.open('https://yandex.by/maps/158/mogilev/?ll=30.285859%2C53.888425&mode=usermaps&source=constructorLink&um=constructor%3Ac8fec4f5ca6fbdf1d84ad29c68cad982046c69d20c335747b0b57b3c059c6586&z=18.98')">
+                               Местоположение
+                            </div>
+                            <div class="popup__element" onclick="window.open('pdf/factories/domochaj.pdf')">
+                                Фотообзор
+                            </div>
+                            <div class="popup__element" onclick="window.open('pdf/factories/prom.pdf')">
+                               Родителям на заметку
+                            </div>
+                            <div class="popup__element tooltip" data-title="&#9993; Email: yasli-sad51@yandex.by">
+                                Ваши отзывы
+                            </div>
+                        </div>
+                        <div class="popup__img">
+                            <img src="img/factories/domochaj.jpg" alt="domochaj">
+                        </div>
+                    </div>
+                    <div class="popup__item">
+                        <h4>Маршрут "Троллейбусный парк №1"</h4>
+                        <div class="popup__menu">
+                            <div class="popup__element" onclick="window.open('https://yandex.by/maps/158/mogilev/?ll=30.281501%2C53.887610&mode=usermaps&source=constructorLink&um=constructor%3Ac8fec4f5ca6fbdf1d84ad29c68cad982046c69d20c335747b0b57b3c059c6586&z=19.5')">
+                               Местоположение
+                            </div>
+                            <div class="popup__element" onclick="window.open('pdf/factories/buspark.pdf')">
+                                Фотообзор
+                            </div>
+                            <div class="popup__element" onclick="window.open('pdf/factories/prom.pdf')">
+                               Родителям на заметку
+                            </div>
+                            <div class="popup__element tooltip" data-title="&#9993; Email: yasli-sad51@yandex.by">
+                                Ваши отзывы
+                            </div>
+                        </div>
+                        <div class="popup__img">
+                            <img src="img/factories/buspark.jpg" alt="bus">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="close-popup js-close-campaign" onclick='CloseModal("overlay__factories","modal__factories")'></div>
+            </div>
+        </div>
+        <div class="overlay overlay__memorials">
+            <div class="popup modal__memorials">
+                <div class="popup__main">
+                    <div class="popup__title">
+                        <h3>Мемориальные комплексы.</h3>
+                    </div>
+                    <div class="popup__item" id="item1">
+                        <h4>Маршрут "К памятнику-бюсту генерал-майора Романова"</h4>
+                        <div class="popup__menu">
+                            <div class="popup__element" onclick="window.open('https://yandex.by/maps/158/mogilev/?ll=30.309777%2C53.893380&mode=usermaps&source=constructorLink&um=constructor%3Ac8fec4f5ca6fbdf1d84ad29c68cad982046c69d20c335747b0b57b3c059c6586&z=21')">
+                               Местоположение
+                            </div>
+                            <div class="popup__element" onclick="window.open('pdf/memorials/for_parents.pdf')">
+                               Родителям на заметку
+                            </div>
+                            <div class="popup__element tooltip" data-title="&#9993; Email: yasli-sad51@yandex.by">
+                                Ваши отзывы
+                            </div>
+                        </div>
+                        <div class="popup__img">
+                            <img src="img/memorials/romanov.jpg" alt="romanov">
+                        </div>
+                    </div>
+
+                    <div class="popup__item">
+                        <h4>Маршрут Мемориальный комплекс на «Буйничском поле» </h4>
+                        <div class="popup__menu">
+                            <div class="popup__element" onclick="window.open('https://yandex.by/maps/?ll=30.256611%2C53.861456&mode=usermaps&source=constructorLink&um=constructor%3A04e8f6977b3d436d2daf10fcf11efb74e924e657c1e4c4c7d10d9a7015d4df72&z=18.75')">
+                               Местоположение
+                            </div>
+                            <div class="popup__element" onclick="window.open('pdf/memorials/buinichi.pdf')">
+                                Фотообзор
+                            </div>
+                            <div class="popup__element" onclick="window.open('pdf/memorials/for_parents.pdf')">
+                               Родителям на заметку
+                            </div>
+                            <div class="popup__element tooltip" data-title="&#9993; Email: yasli-sad51@yandex.by">
+                                Ваши отзывы
+                            </div>
+                        </div>
+                        <div class="popup__img">
+                            <img src="img/memorials/buinichi.jpg" alt="buinichi">
+                        </div>
+                    </div>
+                </div>
+                <div class="close-popup js-close-campaign" onclick='CloseModal("overlay__memorials","modal__memorials")'></div>
+            </div>
+        </div>
+        <div class="overlay overlay__park">
+            <div class="popup modal__park">
+                <div class="popup__main">
+                    <div class="popup__title">
+                        <h3>Природные объекты.</h3>
+                    </div>
+                    <div class="popup__item" id="item1">
+                        <h4>Маршрут "Парк имени Горького"</h4>
+                        <div class="popup__menu">
+                            <div class="popup__element" onclick="window.open('https://yandex.by/maps/158/mogilev/?ll=30.328386%2C53.894130&mode=usermaps&source=constructorLink&um=constructor%3Ac8fec4f5ca6fbdf1d84ad29c68cad982046c69d20c335747b0b57b3c059c6586&z=18.59')">
+                               Местоположение
+                            </div>
+                            <div class="popup__element" onclick="window.open('pdf/parks/park.pdf')">
+                                Фотообзор
+                            </div>
+                            <div class="popup__element" onclick="window.open('pdf/parks/for_parents.pdf')">
+                               Родителям на заметку
+                            </div>
+                            <div class="popup__element tooltip" data-title="&#9993; Email: yasli-sad51@yandex.by">
+                                Ваши отзывы
+                            </div>
+                        </div>
+                        <div class="popup__img">
+                            <img src="img/park/parkjpg.jpg" alt="park">
+                        </div>
+                    </div>
+
+                    <div class="popup__item">
+                        <h4>Маршрут "Река Днепр"</h4>
+                        <div class="popup__menu">
+                            <div class="popup__element" onclick="window.open('https://yandex.by/maps/158/mogilev/?ll=30.328064%2C53.892654&mode=usermaps&source=constructorLink&um=constructor%3Ac8fec4f5ca6fbdf1d84ad29c68cad982046c69d20c335747b0b57b3c059c6586&z=18')">
+                               Местоположение
+                            </div>
+                            <div class="popup__element" onclick="window.open('pdf/parks/dnepr.pdf')">
+                                Фотообзор
+                            </div>
+                            <div class="popup__element" onclick="window.open('pdf/parks/for_parents.pdf')">
+                               Родителям на заметку
+                            </div>
+                            <div class="popup__element tooltip" data-title="&#9993; Email: yasli-sad51@yandex.by">
+                                Ваши отзывы
+                            </div>
+                        </div>
+                        <div class="popup__img">
+                            <img src="img/park/dnepr.jpg" alt="dnepr">
+                        </div>
+                    </div>
+                </div>
+                <div class="popup__item">
+                    <h4>Маршрут "Путешествие в зоосад"</h4>
+                    <div class="popup__menu">
+                        <div class="popup__element" onclick="window.open('https://yandex.by/maps/?ll=30.263659%2C53.862448&mode=usermaps&source=constructorLink&um=constructor%3A04e8f6977b3d436d2daf10fcf11efb74e924e657c1e4c4c7d10d9a7015d4df72&z=18.27')">
+                           Местоположение
+                        </div>
+                        <div class="popup__element" onclick="window.open('pdf/parks/zoo.pdf')">
+                            Фотообзор
+                        </div>
+                        <div class="popup__element" onclick="window.open('pdf/parks/for_parents.pdf')">
+                           Родителям на заметку
+                        </div>
+                        <div class="popup__element tooltip" data-title="&#9993; Email: yasli-sad51@yandex.by">
+                            Ваши отзывы
+                        </div>
+                    </div>
+                    <div class="popup__img">
+                        <img src="img/park/zoosad.jpg" alt="zoosad">
+                    </div>
+                </div>
+                <div class="close-popup js-close-campaign" onclick='CloseModal("overlay__park","modal__park")'></div>
+            </div>
+        </div>
+
+        </div>
+    <script src="js/app.js"></script>
+</body>
+</html>
